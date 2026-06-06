@@ -31,7 +31,7 @@
                             </thead>
                             <tbody>
                                 @forelse($reports as $report)
-                                    <tr class="border-t border-slate-700 hover:bg-white/5">
+                                    <tr class="hover:bg-white/5">
                                         <td class="px-4 py-4 text-cyan-100">{{ $report->report_date->format('M d, Y') }}</td>
                                         <td class="px-4 py-4 text-white">{{ $report->staff->name }}</td>
                                         <td class="px-4 py-4 text-right text-white">{{ number_format($report->new_customers_count) }}</td>
