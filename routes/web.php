@@ -45,6 +45,8 @@ Route::middleware([
 
             return view('staff.dashboard', compact('totalCustomers', 'totalDeposits', 'customerDepositTotals'));
         })->name('dashboard');
+
+        Route::resource('reports', \App\Http\Controllers\Staff\ReportController::class)->only(['create', 'store']);
     });
 
     // Programmer Routes
@@ -54,5 +56,6 @@ Route::middleware([
         })->name('dashboard');
 
         Route::resource('staff', \App\Http\Controllers\Programmer\StaffController::class)->only(['create', 'store']);
+        Route::resource('reports', \App\Http\Controllers\Programmer\ReportController::class)->only(['index', 'show']);
     });
 });

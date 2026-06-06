@@ -48,7 +48,7 @@
                         <div class="mb-4 text-4xl">📊</div>
                         <h3 class="text-xl font-bold text-white mb-2">Create Report</h3>
                         <p class="text-sm text-cyan-200 mb-6">Generate daily operations report</p>
-                        <a href="#" 
+                        <a href="{{ route('staff.reports.create') }}" 
                             class="w-full inline-flex justify-center items-center px-6 py-3 border border-cyan-400 rounded-xl font-bold text-sm text-white uppercase tracking-widest transition-all duration-200 shadow-lg hover:bg-cyan-500/20"
                             style="background: linear-gradient(135deg, #00a8d8, #0088a8); color: white;">
                             📋 New Report
@@ -56,7 +56,7 @@
                     </div>
                 </div>
 
-                <!-- Additional Content Section -->
+                <!-- Additional Content Section 
                 <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl">
                     <div class="px-6 py-5">
                         <h3 class="text-lg leading-6 font-bold text-cyan-300">🔗 Quick Links & Tools</h3>
@@ -66,34 +66,34 @@
                             Access all your staff tools and manage customer interactions from this dashboard. Use the cards above to view key metrics and create reports.
                         </p>
                     </div>
-                </div>
+                </div>   -->
 
-                <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl">
-                    <div class="px-6 py-5">
+                <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
+                    <div class="px-6 py-5 lg:px-8 lg:py-7">
                         <h3 class="text-lg leading-6 font-bold text-cyan-300">👥 Customer Deposits</h3>
-                        <p class="text-cyan-100 text-sm mt-1">
-                            List of customers and the total amount each has deposited.
+                        <p class="text-cyan-100 text-sm mt-2 max-w-2xl">
+                            
                         </p>
                     </div>
                     <div class="p-6 lg:p-8 overflow-x-auto">
-                        <table class="min-w-full text-left text-sm divide-y divide-slate-700">
+                        <table class="min-w-[780px] w-full text-left text-sm">
                             <thead>
-                                <tr class="text-slate-300">
-                                    <th class="py-3 px-4 font-semibold uppercase tracking-wide">Customer</th>
-                                    <th class="py-3 px-4 font-semibold uppercase tracking-wide">Email</th>
-                                    <th class="py-3 px-4 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
+                                <tr class="text-slate-300 bg-slate-900/10">
+                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
+                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
+                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-slate-700">
+                            <tbody>
                                 @forelse($customerDepositTotals as $customer)
                                     <tr class="hover:bg-white/5">
-                                        <td class="py-4 px-4 text-white">{{ $customer->name }}</td>
-                                        <td class="py-4 px-4 text-cyan-100">{{ $customer->email }}</td>
-                                        <td class="py-4 px-4 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
+                                        <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
+                                        <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
+                                        <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td class="py-4 px-4 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
+                                        <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
                                     </tr>
                                 @endforelse
                             </tbody>
