@@ -865,33 +865,33 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
-                <h3>UI Design</h3>
-                <p>Kutengeneza interface nzuri na rahisi kutumia kwa ajili ya users wako.</p>
+                <h3>Akiba Salama</h3>
+                <p>Tunatoa mazingira salama na ya kuaminika kwa wateja kuhifadhi fedha zao. Akiba yako inalindwa na unaweza kufuatilia miamala yako wakati wowote kupitia akaunti yako.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">✨</div>
-                <h3>UX Research</h3>
-                <p>Kuchunguza tabia za users na kupanga solutions bora.</p>
+                <h3>Mipango Ya Akiba</h3>
+                <p>Chagua mpango wa akiba unaokufaa kulingana na malengo yako ya kifedha. Tunatoa mipango ya muda mfupi na muda mrefu ili kukusaidia kufikia malengo yako kwa urahisi.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📱</div>
-                <h3>Responsive Design</h3>
-                <p>Websites na apps zinazofanya vizuri kwenye devices zote.</p>
+                <h3>Malengo Ya Fedha</h3>
+                <p>Weka malengo maalum ya kifedha kama kulipia ada, kuanzisha biashara, kununua vifaa, au kujenga nyumba. Mfumo utakusaidia kufuatilia maendeleo ya lengo lako.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">⚙️</div>
-                <h3>Frontend Development</h3>
-                <p>Kubadilisha designs kuwa real websites na applications.</p>
+                <h3>Ufuatiliaji Wa Akiba</h3>
+                <p>Fuatilia kiasi cha fedha ulichoweka, maendeleo ya akiba yako, na historia ya miamala kupitia dashboard rahisi kutumia inayopatikana muda wote.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
-                <h3>Brand Strategy</h3>
-                <p>Kutengeneza brand identity enye nguvu na inayoweza kukumbuka.</p>
+                <h3>Ripoti Za Miamala</h3>
+                <p>Pata taarifa kamili za miamala yako ya kuweka na kutoa fedha. Ripoti hizi hukusaidia kusimamia fedha zako kwa uwazi na kupanga matumizi yako vizuri.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Analytics</h3>
-                <p>Kufuatilia na kuboresha performance ya digital presence yako.</p>
+                <h3>Utoaji Wa Akiba</h3>
+                <p>Baada ya kufikia muda wa mpango wako wa akiba, unaweza kuomba kutoa fedha zako kwa urahisi na usalama kulingana na masharti ya mpango uliouchagua.</p>
             </div>
         </div>
     </section>
