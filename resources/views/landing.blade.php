@@ -831,10 +831,10 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Nyumbani</a></li>
             <li><a href="#service">Huduma</a></li>
-            <li><a href="#company">Kampani</a></li>
             <li><a href="#portfolio">Portifolio</a></li>
             <li><a href="#contact">Wasiliana Nasi</a></li>
-            <li><a href="{{ route('login') }}" style="color: #00a8d8; border: 2px solid #00a8d8; padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s; background: transparent;">Ingia</a></li>
+            <li><a href="{{ route('login') }}" class="cta-button" 
+style="background: transparent; border: 2px solid #00a8d8; text-decoration: none; padding: 8px 16px; font-size: 14px;">Ingia</a></li>
         </ul>
     </nav>
 
@@ -884,12 +884,12 @@
                 <p>Fuatilia kiasi cha fedha ulichoweka, maendeleo ya akiba yako, na historia ya miamala kupitia dashboard rahisi kutumia inayopatikana muda wote.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
+                <div class="feature-icon">📊</div>
                 <h3>Ripoti Za Miamala</h3>
                 <p>Pata taarifa kamili za miamala yako ya kuweka na kutoa fedha. Ripoti hizi hukusaidia kusimamia fedha zako kwa uwazi na kupanga matumizi yako vizuri.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon">🎯</div>
                 <h3>Utoaji Wa Akiba</h3>
                 <p>Baada ya kufikia muda wa mpango wako wa akiba, unaweza kuomba kutoa fedha zako kwa urahisi na usalama kulingana na masharti ya mpango uliouchagua.</p>
             </div>
