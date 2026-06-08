@@ -941,11 +941,11 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
             </div>
             <div class="about-content">
                 <h2>Kuhusu Akibaplus</h2>
-                <p>Tumetumia miaka kadhaa kushughulika na UI/UX design, kutengeneza solutions za kidijitali zinazokukamata jicho na kazi.</p>
-                <p>Sisi ni team ya wabunifu, waengineer, na storytellers ambao tunapenda kufanya digital experiences zinazojuu.</p>
+                <p>AkibaPlus ni mfumo wa kidigitali unaosaidia watu kuweka akiba kwa urahisi, usalama na uwazi. Unawawezesha watumiaji kuweka fedha, kufuatilia maendeleo ya akiba zao, na kupanga malengo ya kifedha kupitia dashboard rahisi kutumia.</p>
+                <p>Lengo letu ni kuwasaidia watu kujenga tabia ya kuokoa fedha na kufikia malengo yao ya kifedha kwa njia ya kisasa na salama.</p>
                 <ul class="about-list">
-                    <li>✓ 50+ Projects Completed</li>
-                    <li>✓ 30+ Happy Clients</li>
+                    <li>✓ 100% Ulinzi Dhabiti</li>
+                    <li>✓ 100% Huduma Bora</li>
                     <li>✓ 100% Satisfaction Rate</li>
                     <li>✓ 24/7 Support</li>
                 </ul>
@@ -959,33 +959,33 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Akibaplus ilituagiza website nzuri sana. Design ilikuwa modern na hiyo ilisaidia sales yetu."</p>
+                <p>“AkibaPlus imenisaidia sana kujifunza kuweka akiba bila usumbufu. Ninaweza kufuatilia maendeleo yangu kila siku kupitia simu yangu.”</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">JK</div>
+                    <div class="author-avatar">EM</div>
                     <div>
-                        <strong>John Kimani</strong>
-                        <p>CEO - Tech Solutions Ltd</p>
+                        <strong>Edwin Muganda</strong>
+                        <p>Principal - PCTL Training Institute</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Team yao ilikuwa professional sana. Wakatufikilisha project haraka na na quality nzuri."</p>
+                <p>“Nilikuwa siwezi kuokoa pesa, lakini baada ya kutumia AkibaPlus nimeweza kufikia malengo yangu ya biashara ndogo.”</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
+                    <div class="author-avatar">IK</div>
                     <div>
-                        <strong>Sarah Mwangi</strong>
-                        <p>Founder - Creative Agency</p>
+                        <strong>Ibrahim Kayange</strong>
+                        <p>Shareholder - Miracle Company</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="stars">★★★★★</div>
-                <p>"Kazi yao ilikuwa beyond expectations. Nimerekomenda Akibaplus kwa wengine wengi."</p>
+                <p>“Mfumo uko vizuri na rahisi kutumia. Napenda jinsi inavyonionesha historia ya miamala yangu kwa uwazi.”</p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">PL</div>
+                    <div class="author-avatar">KM</div>
                     <div>
-                        <strong>Peter Lela</strong>
+                        <strong>Kelvin Mayeye</strong>
                         <p>Manager - Digital Marketing</p>
                     </div>
                 </div>
@@ -1040,19 +1040,11 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Akibaplus</h4>
-                <p>UI/UX Design Studio</p>
+                <p>Hifadhi Bora.</p>
             </div>
+            
             <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#service">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
+                <h4>Tufuatilie</h4>
                 <div class="social-links">
                     <a href="#" title="Facebook">f</a>
                     <a href="#" title="Twitter">𝕏</a>
@@ -1062,7 +1054,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
             </div>
         </div>
         <hr style="border: none; border-top: 1px solid rgba(0, 168, 216, 0.2); margin: 2rem 0;">
-        <p>&copy; 2026 Akibaplus - UI/UX Design Studio. All rights reserved.</p>
+        <p>&copy; 2026 Akibaplus - Weka Nasi. Haki Zote Zimehifadhiwa.</p>
     </footer>
 
     <script>
