@@ -10,6 +10,12 @@ use Illuminate\Validation\Rules\Password;
 
 class StaffController extends Controller
 {
+    public function index()
+    {
+        $staff = User::where('role', 'staff')->get();
+        return view('programmer.staff.index', compact('staff'));
+    }
+
     public function create()
     {
         return view('programmer.staff.create');
@@ -30,6 +36,17 @@ class StaffController extends Controller
             'role' => 'staff',
         ]);
 
-        return redirect()->route('programmer.dashboard')->with('success', 'Staff member created successfully.');
+        return redirect()->route('programmer.staff.index')->with('success', 'Staff member created successfully.');
+    }
+
+    public function destroy(User $staff)
+    {
+        if ($staff->role !== 'staff') {
+            return back()->withErrors(['message' => 'User is not a staff member.']);
+        }
+
+        $staff->delete();
+
+        return redirect()->route('programmer.staff.index')->with('success', 'Staff member deleted successfully.');
     }
 }

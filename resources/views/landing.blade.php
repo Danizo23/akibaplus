@@ -831,7 +831,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#home">Nyumbani</a></li>
             <li><a href="#service">Huduma</a></li>
-            <li><a href="#portfolio">Portifolio</a></li>
+          <!--  <li><a href="#portfolio">Portifolio</a></li> -->
             <li><a href="#contact">Wasiliana Nasi</a></li>
             <li><a href="{{ route('login') }}" class="cta-button" 
 style="background: transparent; border: 2px solid #00a8d8; text-decoration: none; padding: 8px 16px; font-size: 14px;">Ingia</a></li>
@@ -843,8 +843,11 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
         <div class="hero-content">
             <h1>AKIBAPLUS </h1>
             <p class="hero-subtitle">
-                Kutengeneza muonekano mzuri na kazi nzuri kwa ajili ya biashara yako. Tunatumia teknolohia mpya na uzoefu wa kituo cha ubunifu.
+               Dhibiti akiba yako, fikia malengo yako kwa urahisi.<br>
+               Kila shilingi ina thamani — anza kuweka akiba leo kwa kesho bora.
+            
             </p>
+            
             <div style="display: flex; gap: 1rem;">
                 <button class="cta-button">Jifunze Zaidi</button>
                 <a href="{{ route('register') }}" class="cta-button" style="background: transparent; border: 2px solid #00a8d8; text-decoration: none;">Jisajili</a>
@@ -861,7 +864,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
 
     <!-- Features Section -->
     <section class="features" id="service">
-        <h2>Services Zetu</h2>
+        <h2>Huduma Zetu</h2>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">🎨</div>
@@ -896,7 +899,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section 
     <section class="portfolio" id="portfolio">
         <div class="portfolio-header">
             <h2>Portfolio Yetu</h2>
@@ -924,7 +927,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                 <p>Cloud-based solution</p>
             </div>
         </div>
-    </section>
+    </section>  -->
 
     <!-- About Section -->
     <section class="about" id="company">
@@ -997,7 +1000,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
     <section class="contact" id="contact">
         <div class="contact-container">
             <h2>Wasiliana Nasi</h2>
-            <p class="contact-subtitle">Tuna maswali? Tupo hapa kusaidia. Tujaribu kurudi saa moja.</p>
+            <p class="contact-subtitle">Una maswali? Tupo hapa kusaidia.</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="info-item">

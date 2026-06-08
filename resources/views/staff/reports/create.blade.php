@@ -96,11 +96,11 @@
                             </div>
 
                             <div class="rounded-3xl bg-slate-900/80 p-5 border border-cyan-400/10">
-                                <p class="text-cyan-200 text-sm">This report will be submitted to the programmer and stored for review.</p>
+                                <p class="text-cyan-200 text-sm">This report will be submitted to the manager and stored for review.</p>
                             </div>
 
                             <button type="submit" class="inline-flex w-full items-center justify-center rounded-2xl bg-cyan-500 px-6 py-4 text-sm font-bold uppercase tracking-widest text-white shadow-lg transition hover:bg-cyan-400">
-                                Submit report to programmer
+                                Submit report to manager
                             </button>
                         </form>
                     </div>

@@ -55,7 +55,7 @@ Route::middleware([
             return view('programmer.dashboard');
         })->name('dashboard');
 
-        Route::resource('staff', \App\Http\Controllers\Programmer\StaffController::class)->only(['create', 'store']);
+        Route::resource('staff', \App\Http\Controllers\Programmer\StaffController::class)->only(['index', 'create', 'store', 'destroy']);
         Route::resource('reports', \App\Http\Controllers\Programmer\ReportController::class)->only(['index', 'show']);
     });
 });
