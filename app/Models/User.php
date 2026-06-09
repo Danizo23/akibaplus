@@ -34,19 +34,68 @@ class User extends Authenticatable
         'role',
     ];
 
+    // Role constants
+    public const ROLE_CUSTOMER = 'customer';
+    public const ROLE_PROGRAMMER = 'programmer';
+    public const ROLE_MANAGER = 'manager';
+    public const ROLE_FINANCE_OFFICER = 'finance_officer';
+    public const ROLE_CUSTOMER_SUPPORT = 'customer_support';
+
+    public const ROLES = [
+        self::ROLE_CUSTOMER,
+        self::ROLE_PROGRAMMER,
+        self::ROLE_MANAGER,
+        self::ROLE_FINANCE_OFFICER,
+        self::ROLE_CUSTOMER_SUPPORT,
+    ];
+
+    /**
+     * Check if the user has a role or one of several roles.
+     *
+     * @param  string|array  $role
+     */
+    public function hasRole(string|array $role): bool
+    {
+        if (is_array($role)) {
+            return in_array($this->role, $role, true);
+        }
+
+        return $this->role === $role;
+    }
+
     public function isProgrammer()
     {
-        return $this->role === 'programmer';
+        return $this->role === self::ROLE_PROGRAMMER;
+    }
+
+    public function isManager()
+    {
+        return $this->role === self::ROLE_MANAGER;
+    }
+
+    public function isFinanceOfficer()
+    {
+        return $this->role === self::ROLE_FINANCE_OFFICER;
+    }
+
+    public function isCustomerSupport()
+    {
+        return $this->role === self::ROLE_CUSTOMER_SUPPORT;
     }
 
     public function isStaff()
     {
-        return $this->role === 'staff';
+        return in_array($this->role, [
+            self::ROLE_FINANCE_OFFICER,
+            self::ROLE_CUSTOMER_SUPPORT,
+            self::ROLE_MANAGER,
+            self::ROLE_PROGRAMMER,
+        ], true);
     }
 
     public function isCustomer()
     {
-        return $this->role === 'customer';
+        return $this->role === self::ROLE_CUSTOMER;
     }
 
     public function savingsAccount()

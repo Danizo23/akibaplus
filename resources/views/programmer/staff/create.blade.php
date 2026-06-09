@@ -31,6 +31,16 @@
                         </div>
 
                         <div class="mt-4">
+                            <x-label for="role" value="{{ __('Staff Role') }}" />
+                            <select id="role" name="role" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-300 focus:ring focus:ring-cyan-200 focus:ring-opacity-50" required>
+                                @foreach($roleOptions as $value => $label)
+                                    <option value="{{ $value }}" {{ old('role') === $value ? 'selected' : '' }}>{{ $label }}</option>
+                                @endforeach
+                            </select>
+                            <x-input-error for="role" class="mt-2" />
+                        </div>
+
+                        <div class="mt-4">
                             <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                             <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>

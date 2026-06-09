@@ -49,6 +49,7 @@
                                     <tr class="text-slate-300 bg-slate-900/10 border-b border-slate-700">
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide">Name</th>
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide">Email</th>
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide">Role</th>
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide">Joined</th>
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Actions</th>
                                     </tr>
@@ -58,6 +59,7 @@
                                         <tr class="border-b border-slate-700 hover:bg-white/5 transition-colors">
                                             <td class="py-5 px-6 text-white font-medium">{{ $member->name }}</td>
                                             <td class="py-5 px-6 text-cyan-100">{{ $member->email }}</td>
+                                            <td class="py-5 px-6 text-cyan-100">{{ ucwords(str_replace('_', ' ', $member->role)) }}</td>
                                             <td class="py-5 px-6 text-cyan-100 text-sm">{{ $member->created_at->format('M d, Y') }}</td>
                                             <td class="py-5 px-6 text-center">
                                                 <form action="{{ route('programmer.staff.destroy', $member) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to delete this staff member? This action cannot be undone.');">

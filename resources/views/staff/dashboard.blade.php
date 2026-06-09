@@ -56,50 +56,106 @@
                     </div>
                 </div>
 
-                <!-- Additional Content Section 
-                <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl">
-                    <div class="px-6 py-5">
-                        <h3 class="text-lg leading-6 font-bold text-cyan-300">🔗 Quick Links & Tools</h3>
-                    </div>
-                    <div class="p-6 lg:p-8">
-                        <p class="text-cyan-100 leading-relaxed font-medium">
-                            Access all your staff tools and manage customer interactions from this dashboard. Use the cards above to view key metrics and create reports.
-                        </p>
-                    </div>
-                </div>   -->
-
-                <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
-                    <div class="px-6 py-5 lg:px-8 lg:py-7">
-                        <h3 class="text-lg leading-6 font-bold text-cyan-300">👥 Customer Deposits</h3>
-                        <p class="text-cyan-100 text-sm mt-2 max-w-2xl">
-                            
-                        </p>
-                    </div>
-                    <div class="p-6 lg:p-8 overflow-x-auto">
-                        <table class="min-w-[780px] w-full text-left text-sm">
-                            <thead>
-                                <tr class="text-slate-300 bg-slate-900/10">
-                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
-                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
-                                    <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($customerDepositTotals as $customer)
-                                    <tr class="hover:bg-white/5">
-                                        <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
-                                        <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
-                                        <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
+                @if(Auth::user()->isFinanceOfficer())
+                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
+                        <div class="px-6 py-5 lg:px-8 lg:py-7">
+                            <h3 class="text-lg leading-6 font-bold text-cyan-300">💰 Financial View</h3>
+                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">Track deposit activity and the top customers by deposit volume.</p>
+                        </div>
+                        <div class="p-6 lg:p-8 overflow-x-auto">
+                            <table class="min-w-[780px] w-full text-left text-sm">
+                                <thead>
+                                    <tr class="text-slate-300 bg-slate-900/10">
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @forelse($customerDepositTotals as $customer)
+                                        <tr class="hover:bg-white/5">
+                                            <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
+                                            <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
+                                            <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
+                @elseif(Auth::user()->isCustomerSupport())
+                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
+                        <div class="px-6 py-5 lg:px-8 lg:py-7">
+                            <h3 class="text-lg leading-6 font-bold text-cyan-300">📬 Customer Support</h3>
+                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">View customers and simulate incoming messages from them.</p>
+                        </div>
+                        <div class="p-6 lg:p-8 space-y-6">
+                            <div class="rounded-3xl bg-slate-900/80 p-6 border border-slate-700">
+                                <h4 class="text-white font-semibold mb-3">SMS Inbox</h4>
+                                <p class="text-cyan-200">No real SMS integration yet, but this area can be used to track customer inquiries and support requests.</p>
+                            </div>
+                            <div class="overflow-x-auto rounded-3xl bg-slate-950/80 p-4">
+                                <table class="min-w-full w-full text-left text-sm">
+                                    <thead>
+                                        <tr class="text-cyan-300 bg-slate-900/10">
+                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide">Customer</th>
+                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide">Email</th>
+                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($customerDepositTotals as $customer)
+                                            <tr class="border-t border-slate-700 hover:bg-white/5">
+                                                <td class="py-4 px-5 text-white">{{ $customer->name }}</td>
+                                                <td class="py-4 px-5 text-cyan-100">{{ $customer->email }}</td>
+                                                <td class="py-4 px-5 text-right text-white">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
+                        <div class="px-6 py-5 lg:px-8 lg:py-7">
+                            <h3 class="text-lg leading-6 font-bold text-cyan-300">👥 Customer Deposits</h3>
+                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">This view is optimized for your role.</p>
+                        </div>
+                        <div class="p-6 lg:p-8 overflow-x-auto">
+                            <table class="min-w-[780px] w-full text-left text-sm">
+                                <thead>
+                                    <tr class="text-slate-300 bg-slate-900/10">
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
+                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($customerDepositTotals as $customer)
+                                        <tr class="hover:bg-white/5">
+                                            <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
+                                            <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
+                                            <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
 
             </div>
         </div>

@@ -29,33 +29,36 @@ Route::middleware([
         Route::post('/savings/withdrawal', [\App\Http\Controllers\Customer\SavingsController::class, 'processWithdrawal'])->name('savings.withdraw');
     });
 
-    // Staff Routes
-    Route::middleware(['role:staff'])->prefix('staff')->name('staff.')->group(function () {
-        Route::get('/dashboard', function () {
-            $totalCustomers = User::where('role', 'customer')->count();
-            $totalDeposits = SavingsTransaction::where('type', 'deposit')->sum('amount');
-
-            $customerDepositTotals = User::where('role', 'customer')
-                ->leftJoin('savings_accounts', 'users.id', '=', 'savings_accounts.user_id')
-                ->leftJoin('savings_transactions', 'savings_accounts.id', '=', 'savings_transactions.savings_account_id')
-                ->selectRaw('users.id, users.name, users.email, COALESCE(SUM(CASE WHEN savings_transactions.type = ? THEN savings_transactions.amount END), 0) as total_deposit', ['deposit'])
-                ->groupBy('users.id', 'users.name', 'users.email')
-                ->orderByDesc('total_deposit')
-                ->get();
-
-            return view('staff.dashboard', compact('totalCustomers', 'totalDeposits', 'customerDepositTotals'));
-        })->name('dashboard');
-
+    // Staff Routes (Finance Officer + Customer Support)
+    Route::middleware(['role:finance_officer|customer_support'])->prefix('staff')->name('staff.')->group(function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Staff\DashboardController::class, 'index'])->name('dashboard');
         Route::resource('reports', \App\Http\Controllers\Staff\ReportController::class)->only(['create', 'store']);
     });
 
     // Programmer Routes
     Route::middleware(['role:programmer'])->prefix('programmer')->name('programmer.')->group(function () {
-        Route::get('/dashboard', function () {
-            return view('programmer.dashboard');
-        })->name('dashboard');
+        Route::get('/dashboard', [\App\Http\Controllers\Programmer\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/customers', [\App\Http\Controllers\Programmer\CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/customers/{user}', [\App\Http\Controllers\Programmer\CustomerController::class, 'show'])->name('customers.show');
+        Route::get('/features', [\App\Http\Controllers\Programmer\FeatureController::class, 'index'])->name('features.index');
 
         Route::resource('staff', \App\Http\Controllers\Programmer\StaffController::class)->only(['index', 'create', 'store', 'destroy']);
         Route::resource('reports', \App\Http\Controllers\Programmer\ReportController::class)->only(['index', 'show']);
+    });
+
+    // Manager Routes
+    Route::middleware(['role:manager'])->prefix('manager')->name('manager.')->group(function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Manager\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/staff', [\App\Http\Controllers\Manager\StaffController::class, 'index'])->name('staff.index');
+        Route::get('/staff/{user}/edit', [\App\Http\Controllers\Manager\StaffController::class, 'edit'])->name('staff.edit');
+        Route::patch('/staff/{user}', [\App\Http\Controllers\Manager\StaffController::class, 'update'])->name('staff.update');
+        Route::delete('/staff/{user}', [\App\Http\Controllers\Manager\StaffController::class, 'destroy'])->name('staff.destroy');
+
+        Route::get('/customers', [\App\Http\Controllers\Manager\CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/customers/{user}', [\App\Http\Controllers\Manager\CustomerController::class, 'show'])->name('customers.show');
+        Route::patch('/customers/{user}', [\App\Http\Controllers\Manager\CustomerController::class, 'update'])->name('customers.update');
+
+        Route::get('/reports', [\App\Http\Controllers\Manager\ReportController::class, 'index'])->name('reports.index');
+        Route::get('/reports/{report}', [\App\Http\Controllers\Manager\ReportController::class, 'show'])->name('reports.show');
     });
 });

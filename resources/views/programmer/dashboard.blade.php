@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-cyan-300 leading-tight">
-            {{ __('Manager Dashboard') }}
+            {{ __('Programmer Dashboard') }}
         </h2>
     </x-slot>
 
@@ -43,8 +43,17 @@
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
                         <div class="relative z-10">
                             <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-1">Total Staff</p>
-                            <h2 class="text-4xl font-black text-white mb-2">{{ \App\Models\User::where('role', 'staff')->count() }}</h2>
+                            <h2 class="text-4xl font-black text-white mb-2">{{ $staffCount }}</h2>
                             <p class="text-sm text-cyan-100">Registered staff members</p>
+                        </div>
+                    </div>
+
+                    <!-- Total Customers Card -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
+                        <div class="relative z-10">
+                            <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-1">Total Customers</p>
+                            <h2 class="text-4xl font-black text-white mb-2">{{ $customerCount }}</h2>
+                            <p class="text-sm text-cyan-100">Registered customers</p>
                         </div>
                     </div>
 
@@ -71,6 +80,32 @@
                             class="w-full inline-flex justify-center items-center px-6 py-3 border border-cyan-400 rounded-xl font-bold text-sm text-white uppercase tracking-widest transition-all duration-200 shadow-lg hover:bg-cyan-500/20"
                             style="background: linear-gradient(135deg, #00a8d8, #0088a8); color: white;">
                             📋 View List
+                        </a>
+                    </div>
+
+                    <!-- View Customers Card -->
+                    <div class="rounded-2xl p-6 shadow-xl transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-center items-center text-center"
+                        style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));">
+                        <div class="mb-4 text-4xl">👤</div>
+                        <h3 class="text-xl font-bold text-white mb-2">View Customers</h3>
+                        <p class="text-sm text-cyan-200 mb-6">Inspect customer accounts and deposits.</p>
+                        <a href="{{ route('programmer.customers.index') }}" 
+                            class="w-full inline-flex justify-center items-center px-6 py-3 border border-cyan-400 rounded-xl font-bold text-sm text-white uppercase tracking-widest transition-all duration-200 shadow-lg hover:bg-cyan-500/20"
+                            style="background: linear-gradient(135deg, #00a8d8, #0088a8); color: white;">
+                            📋 View Customers
+                        </a>
+                    </div>
+
+                    <!-- Feature Requests Card -->
+                    <div class="rounded-2xl p-6 shadow-xl transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-center items-center text-center"
+                        style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.05));">
+                        <div class="mb-4 text-4xl">🛠️</div>
+                        <h3 class="text-xl font-bold text-white mb-2">Feature Requests</h3>
+                        <p class="text-sm text-cyan-200 mb-6">Track and add new features for the system.</p>
+                        <a href="{{ route('programmer.features.index') }}" 
+                            class="w-full inline-flex justify-center items-center px-6 py-3 border border-cyan-400 rounded-xl font-bold text-sm text-white uppercase tracking-widest transition-all duration-200 shadow-lg hover:bg-cyan-500/20"
+                            style="background: linear-gradient(135deg, #00a8d8, #0088a8); color: white;">
+                            ✨ Build Features
                         </a>
                     </div>
 
