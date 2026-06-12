@@ -1027,7 +1027,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                         <input type="email" placeholder="Email yako" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" placeholder="Subject">
+                        <input type="text" placeholder="Lengo">
                     </div>
                     <div class="form-group">
                         <textarea placeholder="Ujumbe wako" rows="5" required></textarea>
