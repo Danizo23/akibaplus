@@ -1024,7 +1024,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                         <input type="text" placeholder="Jina lako" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="Email yako" required>
+                        <input type="email" placeholder="Anuani yako" required>
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="Lengo">
