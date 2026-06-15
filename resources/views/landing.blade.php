@@ -950,7 +950,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                     <li>✓ 100% Ulinzi Dhabiti</li>
                     <li>✓ 100% Huduma Bora</li>
                     <li>✓ 100% Satisfaction Rate</li>
-                    <li>✓ 24/7 Support</li>
+                    <li>✓ 24/7 Msaada</li>
                 </ul>
             </div>
         </div>
