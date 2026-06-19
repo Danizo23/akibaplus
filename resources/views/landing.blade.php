@@ -1015,7 +1015,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                     </div>
                     <div class="info-item">
                         <div class="info-icon">📍</div>
-                        <h3>Office</h3>
+                        <h3>Ofisi</h3>
                         <p>Dar es salaam, Tanzania</p>
                     </div>
                 </div>
