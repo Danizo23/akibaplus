@@ -1005,7 +1005,7 @@ style="background: transparent; border: 2px solid #00a8d8; text-decoration: none
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="info-icon">📧</div>
-                        <h3>Email</h3>
+                        <h3>Anuani</h3>
                         <p><a href="mailto:info@akibaplus.com">info@akibaplus.com</a></p>
                     </div>
                     <div class="info-item">
