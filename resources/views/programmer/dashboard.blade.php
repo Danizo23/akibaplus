@@ -7,7 +7,7 @@
 
     <div class="min-h-screen" style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);">
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 
                 @if(session('success'))
                     <div class="rounded-2xl bg-emerald-500/10 border border-emerald-400/30 text-emerald-100 p-4 shadow-sm">
@@ -29,7 +29,7 @@
                 </div>
 
                 <!-- Programmer Stats Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                     <!-- System Status Card -->
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
                         <div class="relative z-10">

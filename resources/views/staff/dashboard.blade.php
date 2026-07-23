@@ -7,7 +7,7 @@
 
     <div class="min-h-screen" style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);">
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 
                 <!-- Welcome Hero Section -->
                 <div class="relative overflow-hidden rounded-2xl p-8 shadow-2xl transition-all"
@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- Staff Stats Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                     <!-- Total Customers Card -->
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
                         <div class="relative z-10">
@@ -63,7 +63,7 @@
                             <p class="text-cyan-100 text-sm mt-2 max-w-2xl">Track deposit activity and the top customers by deposit volume.</p>
                         </div>
                         <div class="p-6 lg:p-8 overflow-x-auto">
-                            <table class="min-w-[780px] w-full text-left text-sm">
+                            <table class="min-w-full w-full text-left text-sm table-auto">
                                 <thead>
                                     <tr class="text-slate-300 bg-slate-900/10">
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
@@ -131,7 +131,7 @@
                             <p class="text-cyan-100 text-sm mt-2 max-w-2xl">This view is optimized for your role.</p>
                         </div>
                         <div class="p-6 lg:p-8 overflow-x-auto">
-                            <table class="min-w-[780px] w-full text-left text-sm">
+                            <table class="min-w-full w-full text-left text-sm table-auto">
                                 <thead>
                                     <tr class="text-slate-300 bg-slate-900/10">
                                         <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>

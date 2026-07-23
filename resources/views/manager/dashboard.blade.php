@@ -7,7 +7,7 @@
 
     <div class="min-h-screen" style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);">
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
                 <div class="relative overflow-hidden rounded-2xl p-8 shadow-2xl transition-all"
                     style="background: linear-gradient(135deg, rgba(0, 168, 216, 0.1), rgba(0, 168, 216, 0.05));">
                     <div class="relative z-10">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                     <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg">
                         <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wide mb-2">Staff Members</p>
                         <h2 class="text-4xl font-black text-white">{{ $staff->count() }}</h2>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <a href="{{ route('manager.staff.index') }}" class="block rounded-3xl bg-cyan-600/15 border border-cyan-400/20 p-8 text-white transition hover:bg-cyan-600/25">
                         <h3 class="text-xl font-bold mb-3">Staff Management</h3>
                         <p class="text-cyan-200">View, edit or remove staff roles and assignments.</p>
