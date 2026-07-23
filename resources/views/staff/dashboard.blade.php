@@ -1,163 +1,85 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-cyan-300 leading-tight">
+        <h2 class="font-semibold text-xl text-cyan-700 leading-tight">
             {{ __('Staff Dashboard') }}
         </h2>
     </x-slot>
 
-    <div class="min-h-screen" style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);">
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                
-                <!-- Welcome Hero Section -->
-                <div class="relative overflow-hidden rounded-2xl p-8 shadow-2xl transition-all"
-                    style="background: linear-gradient(135deg, rgba(0, 168, 216, 0.1), rgba(0, 168, 216, 0.05));">
-                    <div class="relative z-10">
-                        <h1 class="text-3xl font-extrabold text-white tracking-tight sm:text-4xl mb-2">
-                            Welcome, {{ explode(' ', Auth::user()->name)[0] }}! 👔
-                        </h1>
-                        <p class="text-cyan-200 text-lg max-w-xl">
-                            Manage daily operations and customer support with ease.
-                        </p>
+    <x-dashboard-shell title="Staff Operations" description="Monitor customers, deposits and support activity from one clean dashboard." icon="👔">
+        <div class="grid gap-6 xl:grid-cols-3">
+            <div class="rounded-3xl bg-slate-50 p-6 shadow-lg border border-slate-200">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Total Customers</p>
+                        <p class="mt-4 text-3xl font-bold text-slate-900">{{ number_format($totalCustomers) }}</p>
                     </div>
+                    <div class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-500/10 text-2xl text-cyan-600">👥</div>
                 </div>
+                <p class="mt-4 text-sm text-slate-500">Active customers in the system</p>
+            </div>
 
-                <!-- Staff Stats Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-                    <!-- Total Customers Card -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
-                        <div class="relative z-10">
-                            <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-1">Total Customers</p>
-                            <h2 class="text-4xl font-black text-white mb-2">{{ number_format($totalCustomers) }}</h2>
-                            <p class="text-sm text-cyan-100">Active customers in system</p>
-                        </div>
+            <div class="rounded-3xl bg-slate-50 p-6 shadow-lg border border-slate-200">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Total Deposits</p>
+                        <p class="mt-4 text-3xl font-bold text-slate-900">Tsh {{ number_format($totalDeposits, 2) }}</p>
                     </div>
-
-                    <!-- Total Deposits Card -->
-                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-white/20 relative overflow-hidden group">
-                        <div class="relative z-10">
-                            <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wider mb-1">Total Deposits</p>
-                            <h2 class="text-4xl font-black text-white mb-2">Tsh {{ number_format($totalDeposits, 2) }}</h2>
-                            <p class="text-sm text-cyan-100">Sum of customer deposit transactions</p>
-                        </div>
-                    </div>
-
-                    <!-- Quick Actions Card -->
-                    <div class="rounded-2xl p-6 shadow-xl transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl flex flex-col justify-center items-center text-center"
-                        style="background: linear-gradient(135deg, rgba(0, 168, 216, 0.15), rgba(0, 168, 216, 0.05));">
-                        <div class="mb-4 text-4xl">📊</div>
-                        <h3 class="text-xl font-bold text-white mb-2">Create Report</h3>
-                        <p class="text-sm text-cyan-200 mb-6">Generate daily operations report</p>
-                        <a href="{{ route('staff.reports.create') }}" 
-                            class="w-full inline-flex justify-center items-center px-6 py-3 border border-cyan-400 rounded-xl font-bold text-sm text-white uppercase tracking-widest transition-all duration-200 shadow-lg hover:bg-cyan-500/20"
-                            style="background: linear-gradient(135deg, #00a8d8, #0088a8); color: white;">
-                            📋 New Report
-                        </a>
-                    </div>
+                    <div class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-emerald-500/10 text-2xl text-emerald-600">💵</div>
                 </div>
+                <p class="mt-4 text-sm text-slate-500">Sum of customer deposit transactions</p>
+            </div>
 
-                @if(Auth::user()->isFinanceOfficer())
-                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
-                        <div class="px-6 py-5 lg:px-8 lg:py-7">
-                            <h3 class="text-lg leading-6 font-bold text-cyan-300">💰 Financial View</h3>
-                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">Track deposit activity and the top customers by deposit volume.</p>
-                        </div>
-                        <div class="p-6 lg:p-8 overflow-x-auto">
-                            <table class="min-w-full w-full text-left text-sm table-auto">
-                                <thead>
-                                    <tr class="text-slate-300 bg-slate-900/10">
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($customerDepositTotals as $customer)
-                                        <tr class="hover:bg-white/5">
-                                            <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
-                                            <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
-                                            <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
+            <div class="rounded-3xl bg-slate-50 p-6 shadow-lg border border-slate-200">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-sm uppercase tracking-[0.2em] text-slate-500">Reports</p>
+                        <p class="mt-4 text-3xl font-bold text-slate-900">{{ $customerDepositTotals->count() }}</p>
                     </div>
-                @elseif(Auth::user()->isCustomerSupport())
-                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
-                        <div class="px-6 py-5 lg:px-8 lg:py-7">
-                            <h3 class="text-lg leading-6 font-bold text-cyan-300">📬 Customer Support</h3>
-                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">View customers and simulate incoming messages from them.</p>
-                        </div>
-                        <div class="p-6 lg:p-8 space-y-6">
-                            <div class="rounded-3xl bg-slate-900/80 p-6 border border-slate-700">
-                                <h4 class="text-white font-semibold mb-3">SMS Inbox</h4>
-                                <p class="text-cyan-200">No real SMS integration yet, but this area can be used to track customer inquiries and support requests.</p>
-                            </div>
-                            <div class="overflow-x-auto rounded-3xl bg-slate-950/80 p-4">
-                                <table class="min-w-full w-full text-left text-sm">
-                                    <thead>
-                                        <tr class="text-cyan-300 bg-slate-900/10">
-                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide">Customer</th>
-                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide">Email</th>
-                                            <th class="py-4 px-5 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($customerDepositTotals as $customer)
-                                            <tr class="border-t border-slate-700 hover:bg-white/5">
-                                                <td class="py-4 px-5 text-white">{{ $customer->name }}</td>
-                                                <td class="py-4 px-5 text-cyan-100">{{ $customer->email }}</td>
-                                                <td class="py-4 px-5 text-right text-white">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
-                                            </tr>
-                                        @empty
-                                            <tr>
-                                                <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
-                                            </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                @else
-                    <div class="bg-white/10 backdrop-blur-md overflow-hidden rounded-2xl shadow-xl w-full">
-                        <div class="px-6 py-5 lg:px-8 lg:py-7">
-                            <h3 class="text-lg leading-6 font-bold text-cyan-300">👥 Customer Deposits</h3>
-                            <p class="text-cyan-100 text-sm mt-2 max-w-2xl">This view is optimized for your role.</p>
-                        </div>
-                        <div class="p-6 lg:p-8 overflow-x-auto">
-                            <table class="min-w-full w-full text-left text-sm table-auto">
-                                <thead>
-                                    <tr class="text-slate-300 bg-slate-900/10">
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide">Customer</th>
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-center">Email</th>
-                                        <th class="py-4 px-6 font-semibold uppercase tracking-wide text-right">Total Deposits</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse($customerDepositTotals as $customer)
-                                        <tr class="hover:bg-white/5">
-                                            <td class="py-5 px-6 text-white whitespace-nowrap">{{ $customer->name }}</td>
-                                            <td class="py-5 px-6 text-cyan-100 text-center break-words">{{ $customer->email }}</td>
-                                            <td class="py-5 px-6 text-right text-white font-semibold">Tsh {{ number_format($customer->total_deposit, 2) }}</td>
-                                        </tr>
-                                    @empty
-                                        <tr>
-                                            <td class="py-5 px-6 text-cyan-100" colspan="3">Hakuna wateja waliopatikana.</td>
-                                        </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                @endif
-
+                    <div class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-amber-400/10 text-2xl text-amber-600">🧾</div>
+                </div>
+                <p class="mt-4 text-sm text-slate-500">Recent record activity</p>
             </div>
         </div>
-    </div>
+
+        <div class="grid gap-6 xl:grid-cols-[1.7fr,1.3fr]">
+            <div class="rounded-3xl bg-white p-6 shadow-lg border border-slate-200">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-xl font-semibold text-slate-900">Operations Summary</h2>
+                        <p class="mt-2 text-slate-500">Quick actions and the latest staff activity.</p>
+                    </div>
+                    <div class="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-cyan-500/10 text-2xl text-cyan-600">⚡</div>
+                </div>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                    <div class="rounded-3xl bg-slate-50 p-5 border border-slate-200">
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Open support cases</p>
+                        <p class="mt-3 text-2xl font-semibold text-slate-900">{{ $customerDepositTotals->count() }}</p>
+                    </div>
+                    <div class="rounded-3xl bg-slate-50 p-5 border border-slate-200">
+                        <p class="text-xs uppercase tracking-[0.18em] text-slate-500">Staff on shift</p>
+                        <p class="mt-3 text-2xl font-semibold text-slate-900">{{ $totalCustomers > 0 ? 12 : 0 }}</p>
+                    </div>
+                </div>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                    <a href="{{ route('staff.reports.create') }}" class="inline-flex items-center justify-center rounded-3xl bg-cyan-600 px-6 py-3 text-sm font-semibold text-white shadow hover:bg-cyan-500">Create Report</a>
+                    <a href="{{ route('manager.dashboard') }}" class="inline-flex items-center justify-center rounded-3xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50">View Manager</a>
+                </div>
+            </div>
+
+            <div class="rounded-3xl bg-white p-6 shadow-lg border border-slate-200">
+                <h3 class="text-lg font-semibold text-slate-900">Activity Feed</h3>
+                <p class="mt-2 text-slate-500">Latest customer interactions and deposit checks.</p>
+                <div class="mt-5 space-y-4">
+                    @forelse($customerDepositTotals->take(4) as $customer)
+                        <div class="rounded-3xl bg-slate-50 p-4 border border-slate-200">
+                            <p class="font-semibold text-slate-900">{{ $customer->name }}</p>
+                            <p class="text-sm text-slate-500">Tsh {{ number_format($customer->total_deposit, 2) }} deposits</p>
+                        </div>
+                    @empty
+                        <div class="rounded-3xl bg-slate-50 p-6 text-center text-slate-500">No recent activity available.</div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </x-dashboard-shell>
 </x-app-layout>

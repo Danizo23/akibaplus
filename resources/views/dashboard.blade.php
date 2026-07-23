@@ -5,11 +5,9 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-800/50 dark:backdrop-blur-xl overflow-hidden shadow-2xl sm:rounded-2xl border border-white/10 transition-all duration-300 hover:shadow-blue-500/20">
-                <x-welcome />
-            </div>
+    <x-dashboard-shell title="Dashboard" description="Your central activity hub, quick stats, and recent updates." icon="📊">
+        <div class="bg-white/5 backdrop-blur-md overflow-hidden rounded-3xl shadow-xl p-8">
+            <x-welcome />
         </div>
-    </div>
+    </x-dashboard-shell>
 </x-app-layout>
