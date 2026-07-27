@@ -1,46 +1,82 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-cyan-300 leading-tight">
+        <h2 class="text-xl font-semibold leading-tight text-[#1B2559]">
             {{ __('Manager Dashboard') }}
         </h2>
     </x-slot>
 
     <x-dashboard-shell title="Manager Dashboard" description="Review staff performance, customer details, and reports from one central dashboard." icon="🛡️">
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg">
-                <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wide mb-2">Staff Members</p>
-                <h2 class="text-4xl font-black text-white">{{ $staff->count() }}</h2>
-                <p class="text-sm text-cyan-200">Total active staff roles</p>
+        <div class="grid gap-6 xl:grid-cols-3">
+            {{-- Staff Members --}}
+            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">Staff Members</p>
+                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">{{ $staff->count() }}</p>
+                    </div>
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">👥</div>
+                </div>
+                <p class="mt-3 text-xs text-[#A3AED0]">Total active staff roles</p>
             </div>
 
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg">
-                <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wide mb-2">Customers</p>
-                <h2 class="text-4xl font-black text-white">{{ $customers->count() }}</h2>
-                <p class="text-sm text-cyan-200">Total registered customers</p>
+            {{-- Customers --}}
+            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">Customers</p>
+                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">{{ $customers->count() }}</p>
+                    </div>
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">📋</div>
+                </div>
+                <p class="mt-3 text-xs text-[#A3AED0]">Total registered customers</p>
             </div>
 
-            <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-lg">
-                <p class="text-sm font-semibold text-cyan-300 uppercase tracking-wide mb-2">Reports</p>
-                <h2 class="text-4xl font-black text-white">{{ $reportsCount }}</h2>
-                <p class="text-sm text-cyan-200">Staff reports submitted</p>
+            {{-- Reports --}}
+            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">Reports</p>
+                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">{{ $reportsCount }}</p>
+                    </div>
+                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">🧾</div>
+                </div>
+                <p class="mt-3 text-xs text-[#A3AED0]">Staff reports submitted</p>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <a href="{{ route('manager.staff.index') }}" class="block rounded-3xl bg-white/5 border border-white/10 p-8 text-white transition hover:bg-white/10">
-                <h3 class="text-xl font-bold mb-3">Staff Management</h3>
-                <p class="text-cyan-200">View, edit or remove staff roles and assignments.</p>
-            </a>
+        <div class="grid gap-6 xl:grid-cols-[1.7fr,1.3fr]">
+            {{-- Management Overview --}}
+            <div class="rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+                <div class="flex items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-lg font-bold text-[#1B2559]">Management Overview</h2>
+                        <p class="mt-1 text-sm text-[#A3AED0]">Move between staff, customers, and reports from a consistent workspace.</p>
+                    </div>
+                    <div class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F4F7FE] text-xl text-[#4318FF]">🧭</div>
+                </div>
 
-            <a href="{{ route('manager.customers.index') }}" class="block rounded-3xl bg-white/5 border border-white/10 p-8 text-white transition hover:bg-white/10">
-                <h3 class="text-xl font-bold mb-3">Customer Management</h3>
-                <p class="text-cyan-200">Review customer records and update details.</p>
-            </a>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                    <a href="{{ route('manager.staff.index') }}" class="inline-flex items-center justify-center rounded-xl bg-[#4318FF] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#3311DB] hover:shadow-md">Staff Management</a>
+                    <a href="{{ route('manager.customers.index') }}" class="inline-flex items-center justify-center rounded-xl border border-[#E9EDF7] bg-[#F4F7FE] px-6 py-3.5 text-sm font-bold text-[#1B2559] shadow-sm transition-all hover:bg-[#EBF0FA]">Customer Management</a>
+                    <a href="{{ route('manager.reports.index') }}" class="inline-flex items-center justify-center rounded-xl border border-[#E9EDF7] bg-[#F4F7FE] px-6 py-3.5 text-sm font-bold text-[#1B2559] shadow-sm transition-all hover:bg-[#EBF0FA] sm:col-span-2">Staff Reports</a>
+                </div>
+            </div>
 
-            <a href="{{ route('manager.reports.index') }}" class="block rounded-3xl bg-white/5 border border-white/10 p-8 text-white transition hover:bg-white/10 md:col-span-2">
-                <h3 class="text-xl font-bold mb-3">Staff Reports</h3>
-                <p class="text-cyan-200">See staff performance and daily work summaries.</p>
-            </a>
+            {{-- Daily Summary --}}
+            <div class="rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+                <h3 class="text-lg font-bold text-[#1B2559]">Daily Summary</h3>
+                <p class="mt-1 text-sm text-[#A3AED0]">A quick overview of the current management workload.</p>
+                <div class="mt-5 space-y-3">
+                    <div class="rounded-2xl border border-[#E9EDF7] bg-[#F4F7FE] p-4 transition-colors hover:bg-[#EBF0FA]">
+                        <p class="font-bold text-[#1B2559]">Staff roles monitored</p>
+                        <p class="mt-0.5 text-xs text-[#A3AED0]">Keep track of team availability and assigned responsibilities.</p>
+                    </div>
+                    <div class="rounded-2xl border border-[#E9EDF7] bg-[#F4F7FE] p-4 transition-colors hover:bg-[#EBF0FA]">
+                        <p class="font-bold text-[#1B2559]">Customer records reviewed</p>
+                        <p class="mt-0.5 text-xs text-[#A3AED0]">Ensure account activity stays accurate and up to date.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </x-dashboard-shell>
 </x-app-layout>
