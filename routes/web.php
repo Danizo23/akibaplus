@@ -29,8 +29,8 @@ Route::middleware([
         Route::post('/savings/withdrawal', [\App\Http\Controllers\Customer\SavingsController::class, 'processWithdrawal'])->name('savings.withdraw');
     });
 
-    // Staff Routes (Finance Officer + Customer Support)
-    Route::middleware(['role:finance_officer|customer_support'])->prefix('staff')->name('staff.')->group(function () {
+    // Staff Routes (Customer Support)
+    Route::middleware(['role:customer_support'])->prefix('staff')->name('staff.')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Staff\DashboardController::class, 'index'])->name('dashboard');
         Route::resource('reports', \App\Http\Controllers\Staff\ReportController::class)->only(['create', 'store']);
         Route::get('/customers', [\App\Http\Controllers\Staff\CustomerController::class, 'index'])->name('customers.index');
@@ -62,5 +62,24 @@ Route::middleware([
 
         Route::get('/reports', [\App\Http\Controllers\Manager\ReportController::class, 'index'])->name('reports.index');
         Route::get('/reports/{report}', [\App\Http\Controllers\Manager\ReportController::class, 'show'])->name('reports.show');
+    });
+
+   // Finance Officer Routes
+    Route::middleware(['role:finance_officer'])->prefix('finance')->name('finance.')->group(function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Finance\DashboardController::class, 'index'])->name('dashboard');
+
+        // Usimamizi wa Amana na Akiba (Savings & Deposits)
+        Route::get('/savings', [\App\Http\Controllers\Finance\SavingsController::class, 'index'])->name('savings.index');
+
+        // Usimamizi wa Maombi ya Kutoa Fedha (Withdrawals)
+        Route::get('/withdrawals', [\App\Http\Controllers\Finance\WithdrawalController::class, 'index'])->name('withdrawals.index');
+        Route::get('/withdrawals/{withdrawal}', [\App\Http\Controllers\Finance\WithdrawalController::class, 'show'])->name('withdrawals.show');
+        Route::patch('/withdrawals/{withdrawal}/approve', [\App\Http\Controllers\Finance\WithdrawalController::class, 'approve'])->name('withdrawals.approve');
+        Route::patch('/withdrawals/{withdrawal}/reject', [\App\Http\Controllers\Finance\WithdrawalController::class, 'reject'])->name('withdrawals.reject');
+
+        // Ripoti za Kifedha na Miamala (Transactions & Reports)
+        Route::get('/transactions', [\App\Http\Controllers\Finance\SavingsTransactionController::class, 'index'])->name('transactions.index');
+        Route::get('/reports', [\App\Http\Controllers\Finance\ReportController::class, 'index'])->name('reports.index');
+        Route::get('/reports/{report}', [\App\Http\Controllers\Finance\ReportController::class, 'show'])->name('reports.show');
     });
 });
