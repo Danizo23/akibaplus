@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
     <x-dashboard-shell title="Customer Details" description="View customer balances and withdrawals." icon="👤">
         <div class="space-y-6">
             <div>
@@ -57,4 +55,4 @@
             </div>
         </div>
     </x-dashboard-shell>
-@endsection
+</x-app-layout>

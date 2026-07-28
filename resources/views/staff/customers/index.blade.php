@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app-layout>
     <x-dashboard-shell title="Customers" description="List of customers available to staff." icon="👥">
         <div class="space-y-6">
             @if($customers->count())
@@ -35,4 +33,4 @@
             @endif
         </div>
     </x-dashboard-shell>
-@endsection
+</x-app-layout>
