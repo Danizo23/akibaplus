@@ -64,8 +64,7 @@
                         <p class="mt-2 text-2xl font-bold text-[#1B2559]">{{ $totalCustomers > 0 ? 12 : 0 }}</p>
                     </div>
                 </div>
-                <div class="mt-6 grid gap-4 sm:grid-cols-3">
-                    <a href="{{ route('staff.customers.index') }}" class="inline-flex items-center justify-center rounded-xl bg-[#4318FF] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#3311DB] hover:shadow-md">View Customers</a>
+                <div class="mt-6 grid gap-4 sm:grid-cols-2">
                     <a href="{{ route('staff.reports.create') }}" class="inline-flex items-center justify-center rounded-xl bg-[#4318FF] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#3311DB] hover:shadow-md">Create Report</a>
                     <a href="{{ route('manager.dashboard') }}" class="inline-flex items-center justify-center rounded-xl border border-[#E9EDF7] bg-[#F4F7FE] px-6 py-3.5 text-sm font-bold text-[#1B2559] shadow-sm transition-all hover:bg-[#EBF0FA]">View Manager</a>
                 </div>

@@ -8,40 +8,43 @@
     <x-dashboard-shell title="Your Savings Growth" description="Start building your financial future with flexible savings plans designed for you." icon="📈">
         <div class="grid gap-6 xl:grid-cols-3">
             {{-- Total Savings --}}
-            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
-                <div class="flex items-center justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">Total Savings</p>
-                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">Tsh {{ number_format($totalSaved, 2) }}</p>
-                    </div>
-                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">💰</div>
-                </div>
-                <p class="mt-3 text-xs text-[#A3AED0]">Your complete savings balance</p>
-            </div>
+            <div class="group relative overflow-hidden rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));">
+                            <div class="absolute inset-0 bg-gradient-to-br from-green-400/5 to-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-green-300 uppercase tracking-widest">Total Savings</p>
+                                    <span class="text-2xl">💰</span>
+                                </div>
+                                <p class="text-4xl font-black text-green-400 mb-1">Tsh {{ number_format($totalSaved, 2) }}</p>
+                                <p class="text-xs text-green-200">Your complete savings balance</p>
+                            </div>
+                        </div>
 
-            {{-- 6-Month Plan --}}
-            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
-                <div class="flex items-center justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">6-Month Plan</p>
-                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">Tsh {{ number_format($totalSixMonth, 2) }}</p>
-                    </div>
-                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">🗓️</div>
-                </div>
-                <p class="mt-3 text-xs text-[#A3AED0]">Short-term savings</p>
-            </div>
+                        <!-- 6-Month Plan Card -->
+                        <div class="group relative overflow-hidden rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style="background: linear-gradient(135deg, rgba(0, 168, 216, 0.1), rgba(0, 168, 216, 0.05));">
+                            <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-blue-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-cyan-300 uppercase tracking-widest">6-Month Plan</p>
+                                    <span class="text-2xl">📅</span>
+                                </div>
+                                <p class="text-4xl font-black text-cyan-400 mb-1">Tsh {{ number_format($totalSixMonth, 2) }}</p>
+                                <p class="text-xs text-cyan-200">Short-term savings</p>
+                            </div>
+                        </div>
 
-            {{-- 12-Month Plan --}}
-            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
-                <div class="flex items-center justify-between gap-4">
-                    <div>
-                        <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">12-Month Plan</p>
-                        <p class="mt-2 text-2xl font-bold text-[#1B2559]">Tsh {{ number_format($totalTwelveMonth, 2) }}</p>
-                    </div>
-                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">⭐</div>
-                </div>
-                <p class="mt-3 text-xs text-[#A3AED0]">Long-term growth</p>
-            </div>
+                        <!-- 12-Month Plan Card -->
+                        <div class="group relative overflow-hidden rounded-3xl p-6 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.05));">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-400/5 to-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm font-bold text-purple-300 uppercase tracking-widest">12-Month Plan</p>
+                                    <span class="text-2xl">⭐</span>
+                                </div>
+                                <p class="text-4xl font-black text-purple-400 mb-1">Tsh {{ number_format($totalTwelveMonth, 2) }}</p>
+                                <p class="text-xs text-purple-200">Long-term growth</p>
+                            </div>
+                        </div>
         </div>
 
         <div class="grid gap-6 xl:grid-cols-[1.7fr,1.3fr]">
