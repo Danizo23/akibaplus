@@ -33,6 +33,8 @@ Route::middleware([
     Route::middleware(['role:finance_officer|customer_support'])->prefix('staff')->name('staff.')->group(function () {
         Route::get('/dashboard', [\App\Http\Controllers\Staff\DashboardController::class, 'index'])->name('dashboard');
         Route::resource('reports', \App\Http\Controllers\Staff\ReportController::class)->only(['create', 'store']);
+        Route::get('/customers', [\App\Http\Controllers\Staff\CustomerController::class, 'index'])->name('customers.index');
+        Route::get('/customers/{user}', [\App\Http\Controllers\Staff\CustomerController::class, 'show'])->name('customers.show');
     });
 
     // Programmer Routes

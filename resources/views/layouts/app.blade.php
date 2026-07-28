@@ -18,7 +18,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-[#F4F7FE] text-[#1B2559] min-h-screen">
+    <body 
+    class="font-sans antialiased text-white min-h-screen"
+    style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);"
+>
         <x-banner />
 
         <div class="flex h-screen overflow-hidden" x-data="{ sidebarOpen: false }">
@@ -78,9 +81,12 @@
             </div>
 
             <!-- Main content area -->
-            <div class="flex flex-1 flex-col overflow-y-auto focus:outline-none bg-[#F4F7FE]">
+            <div 
+    class="flex flex-1 flex-col overflow-y-auto focus:outline-none"
+    style="background: linear-gradient(135deg, #0f3a4a 0%, #1a5f7a 50%, #0d2e3d 100%);"
+>
                 <!-- Top Nav -->
-                <header class="flex flex-shrink-0 items-center justify-between px-6 py-4 md:px-8 bg-[#F4F7FE]/80 backdrop-blur-md sticky top-0 z-30">
+               <header class="flex flex-shrink-0 items-center justify-between px-6 py-4 md:px-8 bg-[#0f3a4a]/80 backdrop-blur-md sticky top-0 z-30">
                     <div class="flex items-center gap-4">
                         <!-- Hamburger menu button -->
                         <button type="button" class="border-r border-gray-200 pr-4 text-gray-500 focus:outline-none lg:hidden" @click="sidebarOpen = true">
