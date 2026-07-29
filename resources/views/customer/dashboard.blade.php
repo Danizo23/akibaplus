@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="text-xl font-semibold leading-tight text-[#1B2559]">
+        <h2 class="text-xl font-semibold leading-tight text-[#1a5f7a]">
             {{ __('Your Savings Growth') }}
         </h2>
     </x-slot>

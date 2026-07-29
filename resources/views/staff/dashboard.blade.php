@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-[#1B2559]">
-            {{ __('Staff Dashboard') }}
+            {{ __('Supporter Dashboard') }}
         </h2>
     </x-slot>
 
-    <x-dashboard-shell title="Staff Operations" description="Monitor customers, deposits and support activity from one clean dashboard." icon="👔">
+    <x-dashboard-shell title="Supporter Operations" description="Monitor customers, deposits and support activity from one clean dashboard." icon="👔">
         <div class="grid gap-6 xl:grid-cols-3">
             {{-- Total Customers --}}
             <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
@@ -20,7 +20,7 @@
             </div>
 
             {{-- Total Deposits --}}
-            <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
+           <!-- <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
                 <div class="flex items-center justify-between gap-4">
                     <div>
                         <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#A3AED0]">Total Deposits</p>
@@ -29,7 +29,7 @@
                     <div class="flex h-14 w-14 items-center justify-center rounded-full bg-[#F4F7FE] text-2xl text-[#4318FF]">💵</div>
                 </div>
                 <p class="mt-3 text-xs text-[#A3AED0]">Sum of customer deposit transactions</p>
-            </div>
+            </div>  -->
 
             {{-- Reports --}}
             <div class="horizon-card rounded-[20px] border border-[#E9EDF7] bg-white p-6 shadow-sm">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="mt-6 grid gap-4 sm:grid-cols-2">
                     <a href="{{ route('staff.reports.create') }}" class="inline-flex items-center justify-center rounded-xl bg-[#4318FF] px-6 py-3.5 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#3311DB] hover:shadow-md">Create Report</a>
-                    <a href="{{ route('manager.dashboard') }}" class="inline-flex items-center justify-center rounded-xl border border-[#E9EDF7] bg-[#F4F7FE] px-6 py-3.5 text-sm font-bold text-[#1B2559] shadow-sm transition-all hover:bg-[#EBF0FA]">View Manager</a>
+                      <a href="{{ route('staff.customers.index') }}" class="inline-flex items-center justify-center rounded-xl border border-[#E9EDF7] bg-[#F4F7FE] px-6 py-3.5 text-sm font-bold text-[#1B2559] shadow-sm transition-all hover:bg-[#EBF0FA]">View Customers</a>
                 </div>
             </div>
 
