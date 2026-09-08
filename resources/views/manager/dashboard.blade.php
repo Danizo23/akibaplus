@@ -44,7 +44,7 @@
                                     <span class="text-2xl">🧾</span>
                                 </div>
                                 <p class="text-4xl font-black text-purple-400 mb-1">{{ $reportsCount }}</p>
-                                <p class="text-xs text-purple-200">Staff reports submitted</p>
+                                <p class="text-xs text-purple-200">Staff report submitted</p>
                             </div>
                         </div>
 
